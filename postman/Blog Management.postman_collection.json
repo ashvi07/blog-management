@@ -400,17 +400,5 @@
 				]
 			}
 		}
-	],
-	"variable": [
-		{
-			"key": "base_url",
-			"value": "http://localhost:5000/api/",
-			"type": "default"
-		},
-		{
-			"key": "token",
-			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzE3MjMxNTIyLCJleHAiOjE3MTcyMzUxMjJ9.xRV-oo-ydWxXMMoIzLdA7onCsXYSYtHaSU1xkqPF5lo",
-			"type": "default"
-		}
 	]
 }
