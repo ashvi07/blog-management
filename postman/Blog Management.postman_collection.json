@@ -1,0 +1,416 @@
+{
+	"info": {
+		"_postman_id": "676f270b-fbef-41b8-b220-e9f2b129464f",
+		"name": "Blog Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Brij Makwana\",\n    \"email\": \"brij.makwana@radixweb.com\",\n    \"password\": \"Brij@patel\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}auth/signup",
+					"host": [
+						"{{base_url}}auth"
+					],
+					"path": [
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"ashvini.chauhan@radixweb.com\",\n    \"password\": \"Radixweb8\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}auth/login",
+					"host": [
+						"{{base_url}}auth"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Blog",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "Recipes",
+							"type": "default"
+						},
+						{
+							"key": "content",
+							"value": "Recipes — or step-by-step instructions for cooking dishes — are the base ingredient of a food blog’s mix, naturally! ",
+							"type": "default"
+						},
+						{
+							"key": "author",
+							"value": "ashvini.chauhan@radixweb.com",
+							"type": "default"
+						},
+						{
+							"key": "tags",
+							"value": "",
+							"type": "default"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}blogs",
+					"host": [
+						"{{base_url}}blogs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Blogs",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}blogs?title=&content=&page=2&limit=2",
+					"host": [
+						"{{base_url}}blogs"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": ""
+						},
+						{
+							"key": "content",
+							"value": ""
+						},
+						{
+							"key": "page",
+							"value": "2"
+						},
+						{
+							"key": "limit",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Specific Blog",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}blogs/1",
+					"host": [
+						"{{base_url}}blogs"
+					],
+					"path": [
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Blog",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "Recipes",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "Recipes — or step-by-step instructions for cooking dishes — are the base ingredient of a food blog’s mix, naturally! ",
+							"type": "text"
+						},
+						{
+							"key": "author",
+							"value": "ashvini.chauhan@radixweb.com",
+							"type": "text"
+						},
+						{
+							"key": "tags",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/home/ashvini.chauhan/Pictures/Images/pexels-photo-2325446.jpeg"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}blogs/3",
+					"host": [
+						"{{base_url}}blogs"
+					],
+					"path": [
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Blog",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}blogs/3",
+					"host": [
+						"{{base_url}}blogs"
+					],
+					"path": [
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Blog Comment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"author\": \"ashvini.chauhan@radixweb.com\",\n    \"content\": \"Sample Comment\",\n    \"createdAt\": \"2024-06-01 08:31:57\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}blogs/3/comments",
+					"host": [
+						"{{base_url}}blogs"
+					],
+					"path": [
+						"3",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Blog specific Comments",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}blogs/2/comments",
+					"host": [
+						"{{base_url}}blogs"
+					],
+					"path": [
+						"2",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Blog Commets",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}blogs/2/comments/1",
+					"host": [
+						"{{base_url}}blogs"
+					],
+					"path": [
+						"2",
+						"comments",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:5000/api/",
+			"type": "default"
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzE3MjMxNTIyLCJleHAiOjE3MTcyMzUxMjJ9.xRV-oo-ydWxXMMoIzLdA7onCsXYSYtHaSU1xkqPF5lo",
+			"type": "default"
+		}
+	]
+}
